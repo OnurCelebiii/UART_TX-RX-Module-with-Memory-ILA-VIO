@@ -27,7 +27,7 @@ use IEEE.NUMERIC_STD.ALL;
 entity uart_rxx is
     Port (i_clk             :        in std_logic                           ;
           i_rx_data_bit     :        in std_logic                           ;
-          o_rx_data         :        out std_logic_vector (9 downto 0)       ;
+          o_rx_data         :        out std_logic_vector (9 downto 0)      ;
           i_rst             :        in std_logic)                          ;
 end uart_rxx;
 
