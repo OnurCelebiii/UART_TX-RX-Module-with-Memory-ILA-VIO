@@ -60,8 +60,8 @@ end component;
 
 ---------------------------------vio-------------------------------------------
 COMPONENT vio_0 PORT (
-    clk : IN STD_LOGIC								   ;
-    probe_out0 : OUT STD_LOGIC_VECTOR(7 DOWNTO 0))				   ;
+    clk 		: 	IN STD_LOGIC					;
+    probe_out0 		: 	OUT STD_LOGIC_VECTOR(7 DOWNTO 0))		;
 END COMPONENT;
 ------------------------------------------------------------------------------
 
@@ -92,12 +92,12 @@ END COMPONENT;
 ------------------------------memory receiver---------------------------------
 COMPONENT blk_mem_gen_1
   PORT (
-    clka : IN STD_LOGIC									;
-    ena : IN STD_LOGIC									;
-    wea : IN STD_LOGIC_VECTOR(0 DOWNTO 0)						;
-    addra : IN STD_LOGIC_VECTOR(3 DOWNTO 0)						;
-    dina : IN STD_LOGIC_VECTOR(9 DOWNTO 0)						;
-    douta : OUT STD_LOGIC_VECTOR(9 DOWNTO 0))						;
+    clka 		: 		IN STD_LOGIC				;
+    ena 		: 		IN STD_LOGIC				;
+    wea 		: 		IN STD_LOGIC_VECTOR(0 DOWNTO 0)		;
+    addra 		: 		IN STD_LOGIC_VECTOR(3 DOWNTO 0)		;
+    dina 		: 		IN STD_LOGIC_VECTOR(9 DOWNTO 0)		;
+    douta 		:	 	OUT STD_LOGIC_VECTOR(9 DOWNTO 0))	;
 END COMPONENT;
 ------------------------------------------------------------------------------
 
@@ -180,12 +180,12 @@ memory_transmitter :  blk_mem_gen_0
 ------------------------memory receiver port map----------------------------------
 memory_received_data : blk_mem_gen_1
   PORT MAP (
-    clka => clk_slow                                                ,
-    ena => ena                                                      ,
-    wea(0) => writea                                                ,
-    addra => address_receiver_memory                                ,
-    dina => outp_received_data                                      ,
-    douta => memory_out_receiver)                                   ;
+    clka 		=> 	   clk_slow                                      ,
+    ena 		=> 	   ena                                           ,
+    wea(0) 		=> 	   writea                                        ,
+    addra 		=> 	   address_receiver_memory                       ,
+    dina 		=> 	   outp_received_data                            ,
+    douta 		=> 	   memory_out_receiver)                          ;
 ----------------------------------------------------------------------------------
 
 
