@@ -36,7 +36,7 @@ signal address_receiver_memory           :       std_logic_vector (3 downto 0)  
 signal writea                            :       std_logic                          := '1'       ; -- receiver wea pin
 signal top_o_tx_reg                      :       std_logic_vector (7 downto 0)                   ; 
 signal top_o_tx_reg_block_out            :       std_logic_vector (7 downto 0)                   ;
-signal memory_out                        :       std_logic_vector (7 downto 0)                   ;  -- transmitter memory output input ila probe 0
+signal memory_out                        :       std_logic_vector (7 downto 0)                   ; -- transmitter memory output input ila probe 0
 signal memory_out_receiver               :       std_logic_vector (9 downto 0)                   ; -- receiver memory out port for input probe ila probe 2
 signal top_o_tx                          :       std_logic                                       ; -- receiver output vector start and stop bit include     
 signal outp_received_data                :       std_logic_vector (9 downto 0)                   ;
@@ -60,9 +60,8 @@ end component;
 
 ---------------------------------vio-------------------------------------------
 COMPONENT vio_0 PORT (
-    clk : IN STD_LOGIC;
-    probe_out0 : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
-  );
+    clk : IN STD_LOGIC								   ;
+    probe_out0 : OUT STD_LOGIC_VECTOR(7 DOWNTO 0))				   ;
 END COMPONENT;
 ------------------------------------------------------------------------------
 
@@ -93,13 +92,12 @@ END COMPONENT;
 ------------------------------memory receiver---------------------------------
 COMPONENT blk_mem_gen_1
   PORT (
-    clka : IN STD_LOGIC;
-    ena : IN STD_LOGIC;
-    wea : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-    addra : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-    dina : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-    douta : OUT STD_LOGIC_VECTOR(9 DOWNTO 0)
-  );
+    clka : IN STD_LOGIC									;
+    ena : IN STD_LOGIC									;
+    wea : IN STD_LOGIC_VECTOR(0 DOWNTO 0)						;
+    addra : IN STD_LOGIC_VECTOR(3 DOWNTO 0)						;
+    dina : IN STD_LOGIC_VECTOR(9 DOWNTO 0)						;
+    douta : OUT STD_LOGIC_VECTOR(9 DOWNTO 0))						;
 END COMPONENT;
 ------------------------------------------------------------------------------
 
@@ -162,8 +160,8 @@ ila : ila_0
 PORT MAP (
 	clk                 =>          clk_fast                        ,
 	probe0              =>          memory_out                      ,  -- transmitter emory output control 
-    probe1              =>          outp_received_data              ,  -- receiver output control 
-    probe2              =>          memory_out_receiver)            ;  -- receiver memory output control
+    probe1                  =>          outp_received_data              ,  -- receiver output control 
+    probe2                  =>          memory_out_receiver)            ;  -- receiver memory output control
 ----------------------------------------------------------------------------------
 
 
